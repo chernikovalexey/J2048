@@ -74,6 +74,7 @@ public class Level {
 
             if (size == 5) {
                 generateTiles();
+                generateTiles();
             }
         }
     }
@@ -120,7 +121,15 @@ public class Level {
                     bricks[xp][yp].value *= 2;
                     bricks[xp][yp].setSwell(12);
 
-                    game.score += bricks[xp][yp].value;
+                    double modifier = 1.0;
+
+                    if (size == 5) {
+                        modifier = 2.0;
+                    } else if (size == 3) {
+                        modifier = 0.5;
+                    }
+
+                    game.score += (int) (bricks[xp][yp].value / modifier);
 
                     if (game.score > game.main.bestScore) {
                         game.main.bestScore = game.score;
@@ -154,7 +163,6 @@ public class Level {
         }
 
         if (emptyTiles.size() > 0) {
-            System.out.println("has empty tiles");
             Random random = new Random();
             Integer[] pos = emptyTiles.get(random.nextInt(emptyTiles.size()));
 
