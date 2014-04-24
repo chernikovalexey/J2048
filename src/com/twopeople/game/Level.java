@@ -71,6 +71,10 @@ public class Level {
         if (genQueue > 0 && isMovingFinished()) {
             --genQueue;
             generateTiles();
+
+            if (size == 5) {
+                generateTiles();
+            }
         }
     }
 
@@ -150,6 +154,7 @@ public class Level {
         }
 
         if (emptyTiles.size() > 0) {
+            System.out.println("has empty tiles");
             Random random = new Random();
             Integer[] pos = emptyTiles.get(random.nextInt(emptyTiles.size()));
 
