@@ -73,7 +73,7 @@ public class Main extends JFrame {
                 label.setForeground(new Color(97, 97, 97));
                 label.setFont(new Font("Tahoma", Font.BOLD, 32));
                 try {
-                    Image image = ImageIO.read(new File("res/logotype.png"));
+                    Image image = ImageIO.read(getClass().getResourceAsStream("/logotype.png"));
                     label.setIcon(new ImageIcon(image));
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -291,7 +291,7 @@ public class Main extends JFrame {
 
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-            setIconImage(ImageIO.read(new File("res/icon.png")));
+            setIconImage(ImageIO.read(getClass().getResource("/icon.png")));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
