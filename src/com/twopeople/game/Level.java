@@ -166,7 +166,12 @@ public class Level {
             Random random = new Random();
             Integer[] pos = emptyTiles.get(random.nextInt(emptyTiles.size()));
 
-            addBrick(pos[0], pos[1], 2);
+            int value = 2;
+            if(game.score > 1024 && random.nextInt() % 2 == 0) {
+                value = 4;
+            }
+
+            addBrick(pos[0], pos[1], value);
             saveState();
         }
     }
