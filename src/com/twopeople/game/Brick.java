@@ -93,6 +93,12 @@ public class Brick implements Serializable {
             fontSize = 42;
         }
 
+        if(Level.size == 5) {
+            fontSize -= 16;
+        } else if(Level.size == 4) {
+            fontSize -= 8;
+        }
+
         Font font = new Font("Tahoma", Font.BOLD, fontSize);
         FontMetrics metrics = g.getFontMetrics(font);
 

@@ -17,7 +17,7 @@ import java.util.Random;
  */
 
 public class Level {
-    private int size = 5;
+    public static int size = 5;
     private int brickSize;
     private int genQueue = 0;
 
